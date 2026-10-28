@@ -2,16 +2,13 @@
 
 將一個或多個影片包成可安裝的 macOS `.saver` 屏保。
 
-## 靈感來源✨
-自定義牆紙：
-https://jingyuan-zheng.github.io/zh/p/macos-custom-video-wallpaper-snoopy/
+## 1.0.1：改善循環接續
 
-snoopy屏保程式
-https://github.com/hitnology/snoopy
+單影片改用 `AVPlayerLooper` 預先準備循環項目，替代手動換片。播放時間以影片的影像軌為準，避免較長音軌或容器時間差造成尾端空白；多影片則提前準備三個播放項目。播放時使用僅包含影像軌的記憶體組合，不重新編碼原始影片。
 
+需要使用新版製作工具重新輸出並安裝 `.saver`，先前安裝的屏保不會自動更新。循環接續不會移除影片內容本身的黑畫面或淡出；本次改動通過播放結構測試，但實際畫面連續性仍需在 Mac 桌面環境預覽確認。
 
-## 快速使用
-下載release中的Video.Saver.Maker.app.zip
+## 使用
 
 1. 雙擊工作資料夾內的 **Video Saver Maker.app**。
 2. 將影片拖到上方區域，或按「加入影片…」多選。支援 MP4、MOV、M4V 容器；實際影像編碼須能由 macOS AVFoundation 播放。
@@ -30,9 +27,10 @@ https://github.com/hitnology/snoopy
 - 建置目標：macOS 12 及以上，Apple Silicon 和 Intel 通用版本。使用者執行製作工具與安裝輸出屏保不需 Xcode。
 - 製作工具和輸出使用本機 ad-hoc 簽章，未使用 Apple Developer ID 或公證。跨機散佈後，可能需要透過「系統設定 → 隱私權與安全性」允許開啟。
 - 已驗證：單影片／多影片輸出、影片內容完整性、中文名稱、重名影片、防覆寫、錯誤處理、清理暫存、簽章及多個屏保同時載入時的資源隔離。
+- 循環測試：影像軌播放範圍從零開始且覆蓋完整播放時間、單影片採用專用循環播放器、多影片預備三個項目、停止後資源清理及再次啟動。
 - 本次執行環境無法開啟 Mac 圖形介面，因此拖放、視窗版面及系統屏保播放尚未做桌面實測。先前 `Sky.mp4` 的 AVFoundation 解碼測試也回傳解碼器錯誤；此工具不會透過轉碼修復原影片，請在系統預覽確認效果。
 
-## 源碼重新建置
+## 重新建置
 
 需要 Apple Command Line Tools：
 

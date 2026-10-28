@@ -83,8 +83,8 @@
             info[@"CFBundleIdentifier"] = [NSString stringWithFormat:@"local.videosavermaker.saver.s%016llx", (unsigned long long)hash];
             // Every exported saver needs its own Objective-C class. System Settings
             // may load several savers into one process while switching previews.
-            NSString *className = [NSString stringWithFormat:@"VSMVideoScreenSaver_%016llx", (unsigned long long)hash];
-            NSData *oldClass = [@"VSMVideoScreenSaver_0000000000000000" dataUsingEncoding:NSUTF8StringEncoding];
+            NSString *className = [NSString stringWithFormat:@"VSMLoopScreenSaver_%016llx", (unsigned long long)hash];
+            NSData *oldClass = [@"VSMLoopScreenSaver_0000000000000000" dataUsingEncoding:NSUTF8StringEncoding];
             NSData *newClass = [className dataUsingEncoding:NSUTF8StringEncoding];
             NSURL *binaryURL = [staging URLByAppendingPathComponent:@"Contents/MacOS/VideoSaver"];
             NSMutableData *binary = [[NSData dataWithContentsOfURL:binaryURL options:0 error:&failure] mutableCopy];

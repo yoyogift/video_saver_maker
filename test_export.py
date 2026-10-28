@@ -108,4 +108,10 @@ int main(int argc, const char *argv[]) {
     subprocess.run([str(helper), str(single), str(multiple)], check=True)
     print('PASS: two different screensavers load in one process with independent resource bundles')
 
+    loop_helper = folder / 'check_loop'
+    subprocess.run(['xcrun', 'clang', '-fobjc-arc', '-framework', 'ScreenSaver',
+                    '-framework', 'AppKit', '-framework', 'AVFoundation', '-framework', 'CoreMedia',
+                    str(root / 'VideoSaverMaker-source/check_loop.m'), '-o', str(loop_helper)], check=True)
+    subprocess.run([str(loop_helper), str(single), str(multiple)], check=True)
+
 print('All exporter checks passed. Desktop playback and drag-and-drop remain manual checks.')

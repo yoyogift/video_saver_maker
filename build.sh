@@ -7,7 +7,7 @@ TEMPLATE="$APP/Contents/Resources/VideoTemplate.saver"
 mkdir -p "$APP/Contents/MacOS" "$TEMPLATE/Contents/MacOS" "$TEMPLATE/Contents/Resources"
 xcrun clang -fobjc-arc -Wall -Wextra -Werror -Wno-unused-parameter -O2 -bundle \
   -arch arm64 -arch x86_64 -mmacosx-version-min=12.0 \
-  -framework ScreenSaver -framework AppKit -framework AVFoundation -framework QuartzCore \
+  -framework ScreenSaver -framework AppKit -framework AVFoundation -framework CoreMedia -framework QuartzCore \
   "$SOURCE_DIR/VideoScreenSaver.m" -o "$TEMPLATE/Contents/MacOS/VideoSaver"
 cat > "$TEMPLATE/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -17,10 +17,10 @@ cat > "$TEMPLATE/Contents/Info.plist" <<'PLIST'
 <key>CFBundleIdentifier</key><string>local.videosavermaker.template</string>
 <key>CFBundleName</key><string>Video Saver</string>
 <key>CFBundlePackageType</key><string>BNDL</string>
-<key>CFBundleShortVersionString</key><string>1.0</string>
-<key>CFBundleVersion</key><string>1</string>
+<key>CFBundleShortVersionString</key><string>1.0.1</string>
+<key>CFBundleVersion</key><string>2</string>
 <key>LSMinimumSystemVersion</key><string>12.0</string>
-<key>NSPrincipalClass</key><string>VSMVideoScreenSaver_0000000000000000</string>
+<key>NSPrincipalClass</key><string>VSMLoopScreenSaver_0000000000000000</string>
 </dict></plist>
 PLIST
 codesign --force --sign - --timestamp=none "$TEMPLATE"
@@ -37,8 +37,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>Video Saver Maker</string>
 <key>CFBundleDisplayName</key><string>Video Saver Maker</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>1.0</string>
-<key>CFBundleVersion</key><string>1</string>
+<key>CFBundleShortVersionString</key><string>1.0.1</string>
+<key>CFBundleVersion</key><string>2</string>
 <key>LSMinimumSystemVersion</key><string>12.0</string>
 <key>NSHighResolutionCapable</key><true/>
 <key>NSPrincipalClass</key><string>NSApplication</string>
