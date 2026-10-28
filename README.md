@@ -2,6 +2,14 @@
 
 將一個或多個影片包成可安裝的 macOS `.saver` 屏保。
 
+## 靈感來源✨
+自定義牆紙：
+https://jingyuan-zheng.github.io/zh/p/macos-custom-video-wallpaper-snoopy/
+
+snoopy屏保程式
+https://github.com/hitnology/snoopy
+
+
 ## 使用
 
 1. 雙擊工作資料夾內的 **Video Saver Maker.app**。
