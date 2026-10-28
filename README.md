@@ -10,7 +10,8 @@ snoopy屏保程式
 https://github.com/hitnology/snoopy
 
 
-## 使用
+## 快速使用
+下載release中的Video.Saver.Maker.app.zip
 
 1. 雙擊工作資料夾內的 **Video Saver Maker.app**。
 2. 將影片拖到上方區域，或按「加入影片…」多選。支援 MP4、MOV、M4V 容器；實際影像編碼須能由 macOS AVFoundation 播放。
@@ -31,7 +32,7 @@ https://github.com/hitnology/snoopy
 - 已驗證：單影片／多影片輸出、影片內容完整性、中文名稱、重名影片、防覆寫、錯誤處理、清理暫存、簽章及多個屏保同時載入時的資源隔離。
 - 本次執行環境無法開啟 Mac 圖形介面，因此拖放、視窗版面及系統屏保播放尚未做桌面實測。先前 `Sky.mp4` 的 AVFoundation 解碼測試也回傳解碼器錯誤；此工具不會透過轉碼修復原影片，請在系統預覽確認效果。
 
-## 重新建置
+## 源碼重新建置
 
 需要 Apple Command Line Tools：
 
